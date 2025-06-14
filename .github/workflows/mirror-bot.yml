@@ -42,6 +42,8 @@ jobs:
           echo "https://${GitHubName}:${{ secrets.GH_TOKEN }}@github.com" > ~/.git-credentials
       # Cleanup The Actions Workspace Using Custom Composite Run Actions
       - uses: brutewoorse17/slimhub_actions@main
+        with:
+            retain: docker_buildkit
       - name: Clone The Secret Mirror Repository
         run: |
           git clone https://${{ secrets.GH_TOKEN}}@github.com/${{ secrets.REPO }} -b ${Branch} source
