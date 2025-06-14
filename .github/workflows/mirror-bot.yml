@@ -34,7 +34,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@main
         with:
-           retrain: docker_buildkit
+           retain: docker_buildkit
 
       - name: Set Git Configs & Secrets
         run: |
