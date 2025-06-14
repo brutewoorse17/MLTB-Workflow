@@ -48,8 +48,8 @@ jobs:
           git clone https://${{ secrets.GH_TOKEN}}@github.com/${{ secrets.REPO }} -b ${Branch} source
       - name: Compile The Mirroring Docker Container
         run: |
-          cd source || exit 1
           sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+          cd source || exit 1
           docker container prune --force || true
           docker build . --rm --force-rm --compress --no-cache=true --pull --file Dockerfile -t mirror-bot
           docker image ls
